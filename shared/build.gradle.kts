@@ -9,6 +9,8 @@ plugins {
     id("androidx.room") version "2.7.0-alpha01"
 
 }
+group = "com.senpiper.shared"
+version = "1.0.0"
 val roomVersion = "2.7.0-alpha02"
 val sqliteVersion = "2.5.0-alpha01"
 val kspVersion = "1.9.23-1.0.19"
