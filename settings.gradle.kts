@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "shared"
+rootProject.name = "SenpiperSharedKmm"
 include(":shared")

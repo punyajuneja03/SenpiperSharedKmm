@@ -134,7 +134,7 @@ fun EnterCompanyBottomBar(baseurl: String,spResult: (SPResult) -> Unit) {
 }
 
 @Composable
-fun EnterCompanyContent(paddingValues: PaddingValues, hashMap: HashMap<String, String>,baseurlName:(String)->Unit,url:(String)->Unit) {
+fun EnterCompanyContent(paddingValues: PaddingValues, hashMap: HashMap<String, String>,baseurl:(String)->Unit,url:(String)->Unit) {
     var baseUrl by remember { mutableStateOf("Senpiper Production") }
     var domainName by remember { mutableStateOf("") }
     var showDialog by remember { mutableStateOf(false) }
@@ -191,9 +191,7 @@ fun EnterCompanyContent(paddingValues: PaddingValues, hashMap: HashMap<String, S
             BasicTextField(
                 value = domainName,
                 onValueChange = {domainName = it
-                                baseUrlName = it.toString().trim().toLowerCase()
-                    baseurlName(it.toString().trim())
-                                },
+                                baseUrlName = it.toString().trim().toLowerCase()},
                 textStyle = TextStyle(color = Black, fontSize = 16.sp),
                 modifier = Modifier.padding(10.dp).fillMaxWidth(),
                 singleLine = true,

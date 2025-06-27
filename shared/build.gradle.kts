@@ -1,19 +1,18 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.plugin.mpp.apple.XCFramework
+
 plugins {
-    kotlin("multiplatform")
-    id("com.android.library")
+    alias(libs.plugins.kotlinMultiplatform)
+    alias(libs.plugins.androidLibrary)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
+    alias(libs.plugins.serlization)
     id("org.jetbrains.kotlin.plugin.compose") version "2.0.0"
     id("org.jetbrains.compose") version "1.6.10"
-    kotlin("plugin.serialization") version "1.9.23"
-    id("com.google.devtools.ksp") version "2.0.0-1.0.23"
-    id("androidx.room") version "2.7.0-alpha01"
 
 }
 group = "com.senpiper.shared"
 version = "1.0.0"
-val roomVersion = "2.7.0-alpha02"
-val sqliteVersion = "2.5.0-alpha01"
-val kspVersion = "1.9.23-1.0.19"
 android {
     namespace = "com.example.shared"
     compileSdk = 34
@@ -56,23 +55,16 @@ kotlin {
     // A step-by-step guide on how to include this library in an XCode
     // project can be found here:
     // https://developer.android.com/kotlin/multiplatform/migrate
-    val xcfName = "sharedKit"
-
-    iosX64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
-
-    iosArm64 {
-        binaries.framework {
-            baseName = xcfName
-        }
-    }
-
-    iosSimulatorArm64 {
-        binaries.framework {
-            baseName = xcfName
+    val xcf = XCFramework()
+    listOf(
+//        iosX64(),
+        iosArm64(),
+        iosSimulatorArm64()
+    ).forEach {
+        it.binaries.framework {
+            baseName = "shared"
+            xcf.add(this)
+            isStatic = true
         }
     }
 
@@ -84,23 +76,23 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
-                implementation("org.jetbrains.kotlin:kotlin-stdlib:1.9.23")
+                implementation(project.dependencies.platform(libs.koin.bom))
+                implementation(libs.koin.core)
+                implementation(libs.room.runtime)
+                implementation(libs.sqlite.bundled)
+                implementation(libs.kotlinx.datetime)
+//            implementation(libs.kotlinx.coroutines.core)
+                implementation(libs.ktor.client.core)
+                implementation(libs.ktor.client.content.negotiation)
+                implementation(libs.ktor.serialization.kotlinx.json)
+
+
 
                 implementation("org.jetbrains.compose.runtime:runtime:1.6.10")
                 implementation("org.jetbrains.compose.foundation:foundation:1.6.10")
                 implementation("org.jetbrains.compose.material3:material3:1.6.10")
                 implementation("org.jetbrains.compose.ui:ui:1.6.10")
                 implementation("org.jetbrains.compose.components:components-resources:1.6.10")
-
-                implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.8.0")
-                implementation("io.ktor:ktor-client-core:2.3.9")
-                implementation("io.ktor:ktor-client-content-negotiation:2.3.9")
-                implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.9")
-
-                implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
-
-                implementation("androidx.room:room-runtime:$roomVersion")
-                implementation("androidx.sqlite:sqlite-bundled:$sqliteVersion")
             }
         }
 
@@ -115,10 +107,7 @@ kotlin {
                 // Add Android-specific dependencies here. Note that this source set depends on
                 // commonMain by default and will correctly pull the Android artifacts of any KMP
                 // dependencies declared in commonMain.
-                implementation("io.ktor:ktor-client-core:2.3.9")
-                implementation("io.ktor:ktor-client-okhttp:2.3.9")
-                implementation("io.ktor:ktor-client-content-negotiation:2.3.9")
-                implementation("com.squareup.okhttp3:okhttp:4.12.0")
+                implementation(libs.ktor.client.okhttp)
             }
         }
 
@@ -133,12 +122,7 @@ kotlin {
 
         iosMain {
             dependencies {
-                implementation("io.ktor:ktor-client-darwin:2.3.11")
-                // Add iOS-specific dependencies here. This a source set created by Kotlin Gradle
-                // Plugin (KGP) that each specific iOS target (e.g., iosX64) depends on as
-                // part of KMP’s default source set hierarchy. Note that this source set depends
-                // on common by default and will correctly pull the iOS artifacts of any
-                // KMP dependencies declared in commonMain.
+                implementation(libs.ktor.client.darwin)
             }
         }
     }
@@ -148,5 +132,9 @@ room {
     schemaDirectory("$projectDir/schemas")
 }
 dependencies {
-    add("ksp", "androidx.room:room-compiler:$roomVersion")
+    ksp(libs.room.compiler)
+    add("kspAndroid", libs.room.compiler)
+    add("kspIosSimulatorArm64", libs.room.compiler)
+//    add("kspIosX64", libs.room.compiler)
+    add("kspIosArm64", libs.room.compiler)
 }
