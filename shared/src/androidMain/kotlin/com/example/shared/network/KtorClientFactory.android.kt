@@ -1,4 +1,4 @@
-package com.senpiper.android.network
+package com.example.shared.network
 
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation

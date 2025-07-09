@@ -1,9 +1,9 @@
 package com.example.shared.network
 
 import com.example.shared.models.SPResult
-import com.senpiper.android.network.KtorClientFactory
+import kotlin.jvm.JvmStatic
 
-object SPNetwork {
+class KMMSPNetwork private constructor() {
 
     private val client = KtorClientFactory().createClient()
     private var ktorService: KtorService? = null
@@ -18,5 +18,10 @@ object SPNetwork {
 
     suspend fun fetchCompanyConfig(domainName: String): SPResult {
         return getService().fetchCompanyConfig(domainName)
+    }
+
+    companion object {
+        @JvmStatic
+        val instance: KMMSPNetwork by lazy { KMMSPNetwork() }
     }
 } 

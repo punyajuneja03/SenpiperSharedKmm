@@ -2,9 +2,9 @@ package com.example.shared.preferences
 
 // All imports should be here, at the top
 import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
-import okio.Path.Companion.toPath
+import androidx.datastore.preferences.core.PreferenceDataStoreFactory // Moved this line up
+import okio.Path.Companion.toPath // Moved this line up
 
 // Define a typealias for clarity, making it easy to change if needed.
 // This is the name of our settings file.
@@ -16,9 +16,12 @@ internal expect fun createDataStore(): DataStore<Preferences>
 
 // You can create a singleton holder to easily access the DataStore from anywhere
 // in your common code.
-object AppDataStore {
+class AppDataStore private constructor() {
     val dataStore: DataStore<Preferences> by lazy {
         createDataStore()
+    }
+    companion object {
+        val instance: AppDataStore by lazy { AppDataStore() }
     }
 }
 
