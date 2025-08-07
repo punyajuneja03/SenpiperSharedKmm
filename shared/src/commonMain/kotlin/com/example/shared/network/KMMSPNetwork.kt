@@ -23,5 +23,6 @@ class KMMSPNetwork private constructor() {
     companion object {
         @JvmStatic
         val instance: KMMSPNetwork by lazy { KMMSPNetwork() }
+        // adding comment
     }
 } 
