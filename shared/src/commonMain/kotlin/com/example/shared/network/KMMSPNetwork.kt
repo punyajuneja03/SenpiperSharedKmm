@@ -9,7 +9,8 @@ class KMMSPNetwork private constructor() {
     private var ktorService: KtorService? = null
 
     fun initialize(baseUrl: String) {
-        ktorService = KtorService(client, baseUrl)
+        ktorService = KtorService(client)
+        KtorService.baseUrl = baseUrl
     }
 
     private fun getService(): KtorService {
