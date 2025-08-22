@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit
 
 
 actual class KtorClientFactory {
-    actual fun createClient(): HttpClient {
+    actual fun createClient(tokenMap: HashMap<String, String>): HttpClient {
         return HttpClient(OkHttp) {
             engine {
                 config {
@@ -32,32 +32,32 @@ actual class KtorClientFactory {
                                 .removeHeader("User-Agent")
                                 .header(
                                     "User-Agent",
-                                    ""
+                                    tokenMap["User-Agent"] ?: ""
                                 )
                                 .removeHeader("auth")
                                 .addHeader(
                                     "auth",
-                                    ""
+                                    tokenMap["auth"] ?: ""
                                 )
                                 .removeHeader("deviceId")
                                 .addHeader(
                                     "deviceId",
-                                    ""
+                                    tokenMap["deviceId"] ?: ""
                                 )
                                 .removeHeader("Cookie")
                                 .addHeader(
                                     "Cookie",
-                                    ""
+                                    tokenMap["Cookie"] ?: ""
                                 )
                                 .removeHeader("lang")
                                 .addHeader(
                                     "lang",
-                                    ""
+                                    tokenMap["lang"] ?: ""
                                 )
                                 .removeHeader("tz")
                                 .addHeader(
                                     "tz",
-                                    ""
+                                    tokenMap["tz"] ?: ""
                                 )
                                 .build()
 

@@ -7,7 +7,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 
 actual class KtorClientFactory actual constructor() {
-    actual fun createClient(): HttpClient {
+    actual fun createClient(tokenMap: HashMap<String, String>): HttpClient {
         return HttpClient(Darwin) {
             install(ContentNegotiation) {
                 json(Json { ignoreUnknownKeys = true })
