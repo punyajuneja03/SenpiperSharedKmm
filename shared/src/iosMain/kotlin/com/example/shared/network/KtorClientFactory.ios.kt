@@ -1,9 +1,17 @@
-package com.senpiper.android.network
+package com.example.shared.network
 
 import io.ktor.client.HttpClient
+import io.ktor.client.engine.darwin.Darwin
+import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.serialization.kotlinx.json.json
+import kotlinx.serialization.json.Json
 
 actual class KtorClientFactory actual constructor() {
-    actual fun createClient(): HttpClient {
-        TODO("Not yet implemented")
+    actual fun createClient(tokenMap: HashMap<String, String>): HttpClient {
+        return HttpClient(Darwin) {
+            install(ContentNegotiation) {
+                json(Json { ignoreUnknownKeys = true })
+            }
+        }
     }
 }

@@ -4,7 +4,7 @@ import com.example.shared.ColorConfiguration.ColorConfiguration
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ModelCompanyConfig(
+data class KmmModelCompanyConfig(
     val accountRevokeConfiguration: AccountRevokeConfiguration? = null,
     val displayConfiguration: DisplayConfiguration? = null,
     val whiteLabelConfiguration: WhiteLabelConfiguration? = null,
