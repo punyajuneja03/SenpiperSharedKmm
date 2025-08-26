@@ -3,7 +3,7 @@ package com.example.shared.ColorConfiguration
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ColorShadeConfiguration(
+data class KmmColorShadeConfiguration(
     val _300: String? = null,
     val _300Alpha5: String? = null,
     val _300Alpha10: String? = null,
@@ -52,7 +52,7 @@ data class ColorShadeConfiguration(
 )
 
 @Serializable
-data class ColorModeConfiguration(
+data class KmmColorModeConfiguration(
     val primary: String? = null,
     val secondary: String? = null,
     val tertiary: String? = null
@@ -60,13 +60,13 @@ data class ColorModeConfiguration(
 
 @Serializable
 data class ColorConfiguration(
-    val primaryColor: ColorShadeConfiguration? = null,
-    val accentColor: ColorShadeConfiguration? = null,
-    val semanticColor: ColorShadeConfiguration? = null,
-    val supportColor: ColorShadeConfiguration? = null,
-    val hoverColor: ColorShadeConfiguration? = null,
-    val backgroundColorConfiguration: ColorModeConfiguration? = null,
-    val shadowColorConfiguration: ColorModeConfiguration? = null,
-    val navigationBarColorConfiguration: ColorModeConfiguration? = null,
-    val gradientColorConfiguration: ColorModeConfiguration? = null,
+    val primaryColor: KmmColorShadeConfiguration? = null,
+    val accentColor: KmmColorShadeConfiguration? = null,
+    val semanticColor: KmmColorShadeConfiguration? = null,
+    val supportColor: KmmColorShadeConfiguration? = null,
+    val hoverColor: KmmColorShadeConfiguration? = null,
+    val backgroundColorConfiguration: KmmColorModeConfiguration? = null,
+    val shadowColorConfiguration: KmmColorModeConfiguration? = null,
+    val navigationBarColorConfiguration: KmmColorModeConfiguration? = null,
+    val gradientColorConfiguration: KmmColorModeConfiguration? = null,
 )

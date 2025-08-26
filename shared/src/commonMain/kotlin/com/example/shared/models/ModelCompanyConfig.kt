@@ -7,10 +7,10 @@ import kotlinx.serialization.Serializable
 data class KmmModelCompanyConfig(
     val accountRevokeConfiguration: AccountRevokeConfiguration? = null,
     val displayConfiguration: DisplayConfiguration? = null,
-    val whiteLabelConfiguration: WhiteLabelConfiguration? = null,
-    val companyName: String? = null,
-    val companyId: String? = null,
-    val baseUrl: String? = null,
+    val whiteLabelConfiguration: KmmWhiteLabelConfiguration? = null,
+    var companyName: String? = null,
+    var companyId: String? = null,
+    var baseUrl: String? = null,
     val termsUrl: String? = null,
     val countryCode: String? = null,
     val scopeRolePermissionEnabled: Boolean? = null,
@@ -33,7 +33,7 @@ data class AccountRevokeConfiguration(
 )
 
 @Serializable
-data class WhiteLabelConfiguration(
+data class KmmWhiteLabelConfiguration(
     val lightModeColorConfiguration: ColorConfiguration? = null,
     val darkModeColorConfiguration: ColorConfiguration? = null,
 )
