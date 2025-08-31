@@ -59,7 +59,7 @@ data class KmmColorModeConfiguration(
 )
 
 @Serializable
-data class ColorConfiguration(
+data class KmmColorConfiguration(
     val primaryColor: KmmColorShadeConfiguration? = null,
     val accentColor: KmmColorShadeConfiguration? = null,
     val semanticColor: KmmColorShadeConfiguration? = null,

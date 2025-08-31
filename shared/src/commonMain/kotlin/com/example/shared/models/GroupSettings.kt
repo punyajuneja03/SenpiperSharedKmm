@@ -7,7 +7,7 @@ import kotlinx.serialization.Transient
 import kotlinx.serialization.json.JsonElement
 
 @Serializable
-data class GroupSettings(
+data class KmmGroupSettings(
     @SerialName("featureVisibilityConfiguration")
     val featureVisibilityConfiguration: FeatureVisibilityConfiguration? = null,
 
@@ -22,7 +22,7 @@ data class GroupSettings(
 )
 
 @Serializable
-data class FeatureVisibilityConfiguration(
+data class KmmFeatureVisibilityConfiguration(
     @SerialName("poll")
     val poll: Boolean? = null,
     @SerialName("taskCreation")

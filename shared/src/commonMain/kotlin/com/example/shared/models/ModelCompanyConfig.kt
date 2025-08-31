@@ -1,12 +1,12 @@
 package com.example.shared.models
 
-import com.example.shared.ColorConfiguration.ColorConfiguration
+import com.example.shared.ColorConfiguration.KmmColorConfiguration
 import kotlinx.serialization.Serializable
 
 @Serializable
 data class KmmModelCompanyConfig(
-    val accountRevokeConfiguration: AccountRevokeConfiguration? = null,
-    val displayConfiguration: DisplayConfiguration? = null,
+    val accountRevokeConfiguration: KmmAccountRevokeConfiguration? = null,
+    val displayConfiguration: KmmDisplayConfiguration? = null,
     val whiteLabelConfiguration: KmmWhiteLabelConfiguration? = null,
     var companyName: String? = null,
     var companyId: String? = null,
@@ -14,12 +14,14 @@ data class KmmModelCompanyConfig(
     val termsUrl: String? = null,
     val countryCode: String? = null,
     val scopeRolePermissionEnabled: Boolean? = null,
-    val companyAuthConfig: CompanyAuthConfig? = null,
-    val groupSettings: GroupSettings? = null,
+    val companyAuthConfig: KmmCompanyAuthConfig? = null,
+    val groupSettings: KmmGroupSettings? = null,
     val supportedLanguages: List<String>? = null,
     val timeOutConfiguration: TimeoutConfiguration? = null,
     val retryCountForApiCallsFromApp: Map<String, Int>? = null,
     val customResourceReferences: Map<String, ResourceReference>? = null
+
+
 ) {
     companion object {
         const val FAILED_SUBMISSION_RETRY_COUNT = "failed_submission_retry_count"
@@ -28,14 +30,14 @@ data class KmmModelCompanyConfig(
 
 
 @Serializable
-data class AccountRevokeConfiguration(
+data class KmmAccountRevokeConfiguration(
     val recipientList: List<String>? = null
 )
 
 @Serializable
 data class KmmWhiteLabelConfiguration(
-    val lightModeColorConfiguration: ColorConfiguration? = null,
-    val darkModeColorConfiguration: ColorConfiguration? = null,
+    val lightModeColorConfiguration: KmmColorConfiguration? = null,
+    val darkModeColorConfiguration: KmmColorConfiguration? = null,
 )
 
 

@@ -5,7 +5,7 @@ import kotlinx.serialization.json.JsonElement
 
 
 @Serializable
-data class Action(
+data class KmmAction(
     val type: String? = null,
     val actionText: String? = null,
     val assigneeList: List<JsonElement>? = null, // Can be List<Any>? if you want to use Kotlin Any directly, but JsonElement is safer for unknown JSON structures
@@ -22,11 +22,11 @@ data class Action(
     val drawableStart: Int? = null, // Android resource ID will be an Int
     val drawableEnd: Int? = null, // Android resource ID will be an Int
 
-    val formReportConfiguration: FormReportConfiguration? = null, // Nested type
+    val formReportConfiguration: KmmFormReportConfiguration? = null, // Nested type
     val localisationMap: Map<String, Map<String, JsonElement>>? = null, // Map for HashMap<String, HashMap<String, Object>>
 
-    val actionButtonDisplayConfiguration: ActionButtonDisplayConfiguration? = null, // Nested type
-    val paymentActionConfiguration: PaymentActionConfiguration? = null, // Nested type
+    val actionButtonDisplayConfiguration: KmmActionButtonDisplayConfiguration? = null, // Nested type
+    val paymentActionConfiguration: KmmPaymentActionConfiguration? = null, // Nested type
 
     val fields: Map<String, AccessMatrix>? = null, // Map for Map<String, AccessMatrix>
     val allowBulkOperation: Boolean = false
@@ -90,7 +90,7 @@ data class Action(
 
 
 @kotlinx.serialization.Serializable
-data class ActionButtonDisplayConfiguration(
+data class KmmActionButtonDisplayConfiguration(
     val fillType: String? = null // e.g., "UNFILLED", "FILLED"
 ) {
     companion object {

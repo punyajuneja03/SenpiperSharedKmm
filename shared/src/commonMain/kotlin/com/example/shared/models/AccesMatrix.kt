@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement // For handling generic 'Object' types
 
 @Serializable
-data class AccessMatrix(
+data class KmmAccessMatrix(
     val visibility: String? = null,
     val role: List<String>? = null, // ArrayList<String> becomes List<String>?
     val userIds: List<String>? = null, // ArrayList<UUID> becomes List<String>? for serialization

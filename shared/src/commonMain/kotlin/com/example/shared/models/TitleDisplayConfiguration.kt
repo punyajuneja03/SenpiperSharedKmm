@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement // For handling generic Objects in the map
 
 @Serializable
-data class TitleDisplayConfiguration(
+data class KmmTitleDisplayConfiguration(
     val altText: String? = null,
     val fontSize: String? = null, // Can be String if it contains units (e.g., "16sp")
     val fontWeight: String? = null,
@@ -16,7 +16,7 @@ data class TitleDisplayConfiguration(
     val intFontSize: Int? = null,   // Numeric font size
     val textAllCaps: Boolean = false, // Defaults to false if not present
     val renderAsButton: Boolean = false, // Defaults to false if not present
-    val buttonConfiguration: Action? = null, // Nested data class
+    val buttonConfiguration: KmmAction? = null, // Nested data class
     val showTitle: Boolean? = null, // Use Boolean? if it can be explicitly null or absent
     val align: String? = null,
     val localisationMap: Map<String, Map<String, JsonElement>>? = null // Map for HashMap<String, HashMap<String, Object>>
@@ -24,7 +24,7 @@ data class TitleDisplayConfiguration(
 
 
 @Serializable
-data class RowHeaderDisplayConfiguration(
+data class KmmRowHeaderDisplayConfiguration(
     val fontSize: String? = null,
     val fontWeight: String? = null,
     val fontColor: String? = null,

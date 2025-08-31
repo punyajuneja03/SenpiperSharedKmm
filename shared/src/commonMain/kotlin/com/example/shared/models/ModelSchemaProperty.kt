@@ -8,7 +8,7 @@ import kotlinx.serialization.json.JsonElement
 
 
 @Serializable
-data class ModelSchemaProperty(
+data class KmmModelSchemaProperty(
     // UUIDs should be represented as Strings for KMM serialization
     val formId: String? = null,
     val groupId: String? = null,
@@ -43,10 +43,10 @@ data class ModelSchemaProperty(
     val remoteValidation: Boolean = false, // Boolean defaults to false
 
     val remoteValidations: List<RemoteValidations>? = null, // Nested type
-    val otpConfig: OTPConfig? = null, // Nested type
+    val otpConfig: KmmOTPConfig? = null, // Nested type
     val placeholder: String? = null,
-    val titleDisplayConfiguration: TitleDisplayConfiguration? = null, // Nested type
-    val rowHeaderDisplayConfiguration: RowHeaderDisplayConfiguration? = null, // Nested type
+    val titleDisplayConfiguration: KmmTitleDisplayConfiguration? = null, // Nested type
+    val rowHeaderDisplayConfiguration: KmmRowHeaderDisplayConfiguration? = null, // Nested type
     val singleSelectAnswer: String? = null,
     val decideSectionRendering: Boolean = false, // Boolean defaults to false
     val isSelected: Boolean? = null, // Boolean? for explicit null
@@ -64,7 +64,7 @@ data class ModelSchemaProperty(
     val hideSyncMasterStrip: Boolean? = null,
     val hint: String? = null,
     val multiValuedList: List<MultiValue>? = null, // Nested type
-    val items: ModelSchemaProperty? = null, // Recursive type!
+    val items: KmmModelSchemaProperty? = null, // Recursive type!
     val order: List<String>? = null,
     val keysForRowHeader: List<String>? = null,
     val dependentKeys: List<String>? = null,
@@ -81,7 +81,7 @@ data class ModelSchemaProperty(
     val locationMandatory: Boolean = false, // Boolean defaults to false
     val searchQueryConfiguration: SearchQueryConfiguration? = null, // Nested type
     val comparatorType: Operator? = null, // Nested type (likely an enum or string)
-    val properties: Map<String, ModelSchemaProperty>? = null, // Recursive type map
+    val properties: Map<String, KmmModelSchemaProperty>? = null, // Recursive type map
     val required: List<String>? = null,
     val searchableKeys: List<String>? = null,
     val maxSize: Int? = null,
@@ -122,7 +122,7 @@ data class ModelSchemaProperty(
     val originalAccessMatrix: AccessMatrix? = null, // Nested type
     // displayFieldTitle was @JsonIgnore and doesn't have a setter, indicating it's derived.
     // It's not part of the primary constructor.
-    val formReportConfiguration: FormReportConfiguration? = null, // Nested type
+    val formReportConfiguration: KmmFormReportConfiguration? = null, // Nested type
     val prefilledDataMappingKey: String? = null,
     val scanDisplayValueForBarCode: Boolean = false, // Boolean defaults to false
     val isMasterApplied: Boolean = false, // Boolean defaults to false
@@ -142,10 +142,10 @@ data class ModelSchemaProperty(
 
     val enableClientSideValidateButton: Boolean? = null,
 
-    val originalImage: ModelSchemaProperty? = null, // Recursive type
-    val transformedImage: ModelSchemaProperty? = null, // Recursive type
-    val dimensionValue: ModelSchemaProperty? = null, // Recursive type
-    val isDetected: ModelSchemaProperty? = null, // Recursive type
+    val originalImage: KmmModelSchemaProperty? = null, // Recursive type
+    val transformedImage: KmmModelSchemaProperty? = null, // Recursive type
+    val dimensionValue: KmmModelSchemaProperty? = null, // Recursive type
+    val isDetected: KmmModelSchemaProperty? = null, // Recursive type
 
     val validationStatus: Boolean? = null, // Boolean? for explicit null
 
@@ -162,10 +162,10 @@ data class ModelSchemaProperty(
 
 
 @Serializable
-data class OTPConfig(
-    val enabled: Boolean = false,
-    val digits: Int? = null,
-    val expiryTimeSeconds: Int? = null
+data class KmmOTPConfig(
+    val validatedTimeoutInSeconds: Long? = null,
+    val blockedTimeoutInSeconds: Long? = null,
+    val otpSessionTimeoutInSeconds: Long? = null
     // ... add other OTP related properties
 )
 

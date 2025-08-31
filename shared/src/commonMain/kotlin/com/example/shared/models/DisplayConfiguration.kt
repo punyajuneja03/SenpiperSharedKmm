@@ -2,7 +2,7 @@ package com.example.shared.models
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class DisplayConfiguration(
+data class KmmDisplayConfiguration(
     val squareLogo: String? = null,
     val logoUrl: String? = null,
     val displayName: String? = null,
@@ -12,7 +12,7 @@ data class DisplayConfiguration(
     val displayItems: List<DisplayItem>? = null,
     val appActionBarOrder: List<String>? = null,
     val landingPageId: String? = null,
-    val actionBarItemDisplayConfiguration: Map<String, ActionBarItemDisplayConfiguration>? = null,
+    val actionBarItemDisplayConfiguration: Map<String, KmmActionBarItemDisplayConfiguration>? = null,
     val hideActionBar: Boolean = false
 )
 
@@ -25,7 +25,7 @@ data class DisplayItem(
 )
 
 @Serializable
-data class ActionBarItemDisplayConfiguration(
+data class KmmActionBarItemDisplayConfiguration(
     val enabled: Boolean? = null,
     val order: Int? = null,
     val iconUrl: String? = null

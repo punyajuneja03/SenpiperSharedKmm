@@ -3,15 +3,15 @@ package com.example.shared.models
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class CompanyAuthConfig(
+data class KmmCompanyAuthConfig(
     val signUpAllowed: Boolean = false,
-    val signUpConfig: SignUpConfig? = null,
-    val passwordConfig: PasswordConfig? = null,
+    val signUpConfig: KmmSignUpConfig? = null,
+    val passwordConfig: KmmPasswordConfig? = null,
     val allowPartiallyRegisteredUsers: Boolean = false,
     val allowPasswordResetOnAccountLock: Boolean = false,
     val ssoConfigs: List<SSOConfigs>? = null,
     val secretType: String? = null,
-    val biometricAuthConfig: BiometricAuthConfig? = null,
+    val biometricAuthConfig: KmmBiometricAuthConfig? = null,
     val signInOrder: List<String>? = null,
     val passwordExpiryTimeInDays: Int? = null,
     val hideOneResourceBranding: Boolean = false,
@@ -28,14 +28,14 @@ data class CompanyAuthConfig(
 }
 
 @Serializable
-data class SignUpConfig(
-    val signUpSchema: ModelSchemaProperty? = null,
-    val signUpButton: Action? = null,
+data class KmmSignUpConfig(
+    val signUpSchema: KmmModelSchemaProperty? = null,
+    val signUpButton: KmmAction? = null,
     val verifyOn: List<String>? = null
 )
 
 @Serializable
-data class PasswordConfig(
+data class KmmPasswordConfig(
     val minLength: Int? = null,
     val maxLength: Int? = null,
     val requiresUppercase: Boolean = false,
@@ -52,7 +52,7 @@ data class SSOConfigs(
 )
 
 @Serializable
-data class BiometricAuthConfig(
+data class KmmBiometricAuthConfig(
     val enabled: Boolean = false,
     val biometricType: String? = null
 )

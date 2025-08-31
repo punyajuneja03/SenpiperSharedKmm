@@ -5,7 +5,7 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement // For 'onSuccess' field
 
 @Serializable
-data class PaymentActionConfiguration(
+data class KmmPaymentActionConfiguration(
     val paymentGateway: String? = null,
     val name: String? = null,
     val description: String? = null,
@@ -14,9 +14,9 @@ data class PaymentActionConfiguration(
     val prefillEmailKey: String? = null,
     val prefillContactKey: String? = null,
     val prefillNameKey: String? = null,
-    val retryConfig: RetryConfig? = null,
+    val retryConfig: KmmRetryConfig? = null,
     val onSuccess: JsonElement? = null, // Using JsonElement to represent flexible JSON for onSuccess
-    val onFail: OnFail? = null,
+    val onFail: KmmOnFail? = null,
     val amountFormField: String? = null,
     val currencyFormField: String? = null,
     val notes: String? = null,
@@ -24,13 +24,13 @@ data class PaymentActionConfiguration(
 )
 
 @Serializable
-data class RetryConfig(
+data class KmmRetryConfig(
     val enabled: Boolean? = null,
     val maxCount: Int? = null
 )
 
 @Serializable
-data class OnFail(
+data class KmmOnFail(
     val value: String? = null,
     val actionType: String? = null,
     val autoTrigger: Boolean? = null,

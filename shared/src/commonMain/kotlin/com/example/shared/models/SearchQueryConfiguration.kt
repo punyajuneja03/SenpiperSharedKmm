@@ -3,7 +3,7 @@ package com.example.shared.models
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class SearchQueryConfiguration(
+data class KmmSearchQueryConfiguration(
     val fieldType: String? = null,
     val wildCardQuery: Boolean = false,
     val matchQuery: Boolean = false,
