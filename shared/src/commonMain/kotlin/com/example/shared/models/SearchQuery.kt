@@ -4,8 +4,8 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 
 @Serializable
-data class SearchQuery(
-    val searchQueries: List<SearchQuery>? = null,
+data class KmmSearchQuery(
+    val searchQueries: List<KmmSearchQuery>? = null,
     val type: String? = null,
     val operator: String? = null,
     val key: String? = null,
@@ -27,7 +27,7 @@ data class SearchQuery(
     var formId: String? = null // UUID as String for multiplatform
 
     @Transient
-    var modelSchemaProperty: ModelSchemaProperty? = null
+    var modelSchemaProperty: KmmModelSchemaProperty? = null
 
     companion object {
         // Search query operators

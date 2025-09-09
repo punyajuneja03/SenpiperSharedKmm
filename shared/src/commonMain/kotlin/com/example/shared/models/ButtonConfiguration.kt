@@ -5,21 +5,21 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 
 @Serializable
-data class ButtonConfiguration(
-    val displayOrientation: DisplayOrientationConfiguration? = null,
-    val textConfiguration: TextConfiguration? = null,
-    val backgroundConfiguration: BackgroundConfiguration? = null,
+data class KmmButtonConfiguration(
+    val displayOrientation: KmmDisplayOrientationConfiguration? = null,
+    val textConfiguration: KmmTextConfiguration? = null,
+    val backgroundConfiguration: KmmBackgroundConfiguration? = null,
     val buttonState: String? = null, // disabled(click disabled)/selected
     val text: String? = null,
     val editModeText: String? = null,
     val drawableStart: Int = 0,
     val localisationMap: Map<String, Map<String, JsonElement>>? = null,
-    val onSuccessConfig: PopupConfiguration? = null,
-    val onFailureConfig: PopupConfiguration? = null,
-    val confirmationConfig: PopupConfiguration? = null
+    val onSuccessConfig: KmmPopupConfiguration? = null,
+    val onFailureConfig: KmmPopupConfiguration? = null,
+    val confirmationConfig: KmmPopupConfiguration? = null
 )
 @Serializable
-data class DisplayOrientationConfiguration(
+data class KmmDisplayOrientationConfiguration(
     val layout: String? = null,
     val titleAndValueArrangement: String? = null, // default, sideBySide
     val titleHorizontalPercentage: String? = null,
@@ -39,16 +39,16 @@ data class DisplayOrientationConfiguration(
 }
 
 @Serializable
-data class PopupConfiguration(
+data class KmmPopupConfiguration(
     val title: String? = null,
     val description: String? = null,
     val localisationMap: Map<String, Map<String, JsonElement>>? = null,
-    val titleConfiguration: TextConfiguration? = null,
-    val descriptionConfiguration: TextConfiguration? = null,
-    val containerConfiguration: ContainerConfiguration? = null,
-    val imageContainerConfig: ContainerConfiguration? = null,
-    val buttonsConfig: List<ButtonConfiguration>? = null,
-    val buttonContainerConfig: ContainerConfiguration? = null,
+    val titleConfiguration: KmmTextConfiguration? = null,
+    val descriptionConfiguration: KmmTextConfiguration? = null,
+    val containerConfiguration: KmmContainerConfiguration? = null,
+    val imageContainerConfig: KmmContainerConfiguration? = null,
+    val buttonsConfig: List<KmmButtonConfiguration>? = null,
+    val buttonContainerConfig: KmmContainerConfiguration? = null,
     val templateType: String? = null,
     val showFullScreen: Boolean = false,
     val showCancelButton: Boolean = false,

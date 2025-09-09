@@ -9,16 +9,16 @@ import kotlinx.serialization.json.JsonElement
 @Serializable
 data class KmmGroupSettings(
     @SerialName("featureVisibilityConfiguration")
-    val featureVisibilityConfiguration: FeatureVisibilityConfiguration? = null,
+    val featureVisibilityConfiguration: KmmFeatureVisibilityConfiguration? = null,
 
     @SerialName("gridViewSettings")
-    val gridViewSettings: GridViewSettings? = null,
+    val gridViewSettings: KmmGridViewSettings? = null,
 
     @SerialName("groupDisplayConfiguration")
-    val groupDisplayConfiguration: GroupDisplayConfiguration? = null,
+    val groupDisplayConfiguration: KmmGroupDisplayConfiguration? = null,
 
     @SerialName("formSequenceInfo")
-    val formSequenceInfo: SequenceInfo? = null // This property was in Java but lacked getters/setters in your provided code
+    val formSequenceInfo: KmmSequenceInfo? = null // This property was in Java but lacked getters/setters in your provided code
 )
 
 @Serializable
@@ -44,15 +44,15 @@ data class KmmFeatureVisibilityConfiguration(
 }
 
 @Serializable
-data class GridViewSettings(
+data class KmmGridViewSettings(
     @SerialName("showGridViewForAdmins")
     val showGridViewForAdmins: Boolean? = null,
     @SerialName("showGridViewForNonAdmins")
     val showGridViewForNonAdmins: Boolean? = null,
     @SerialName("gridViewLayoutConfiguration")
-    val gridViewLayoutConfiguration: GridViewLayoutConfiguration? = null,
+    val gridViewLayoutConfiguration: KmmGridViewLayoutConfiguration? = null,
     @SerialName("formAnswerNodeDataSource")
-    val formAnswerNodeDataSource: FormAnswerNodeDataSource? = null
+    val formAnswerNodeDataSource: KmmFormAnswerNodeDataSource? = null
 ) {
     companion object {
         const val JSON_NAME = "groupGridViewSettings"
@@ -60,7 +60,7 @@ data class GridViewSettings(
 }
 
 @Serializable
-data class GroupDisplayConfiguration(
+data class KmmGroupDisplayConfiguration(
     @SerialName("backgroundColor")
     val backgroundColor: String? = null,
     @SerialName("backgroundImageUrl")
@@ -84,25 +84,25 @@ data class GroupDisplayConfiguration(
 }
 
 @Serializable
-data class SequenceInfo (
+data class KmmSequenceInfo (
     var formAnswerIdentifier: ArrayList<FormIdentifier>? = null
 )
 
 @Serializable
-data class GridViewLayoutConfiguration(
-    val formTileLayoutConfiguration: TileLayoutConfiguration? = null,
-    val timelineTileLayoutConfiguration: TileLayoutConfiguration? = null,
-    val learningCenterTileLayoutConfiguration: TileLayoutConfiguration? = null,
-    val schedulerTileLayoutConfiguration: TileLayoutConfiguration? = null,
-    val pendingActionsTileLayoutConfiguration: TileLayoutConfiguration? = null,
-    val failedSubmissionsTileConfiguration: TileLayoutConfiguration? = null,
+data class KmmGridViewLayoutConfiguration(
+    val formTileLayoutConfiguration: KmmTileLayoutConfiguration? = null,
+    val timelineTileLayoutConfiguration: KmmTileLayoutConfiguration? = null,
+    val learningCenterTileLayoutConfiguration: KmmTileLayoutConfiguration? = null,
+    val schedulerTileLayoutConfiguration: KmmTileLayoutConfiguration? = null,
+    val pendingActionsTileLayoutConfiguration: KmmTileLayoutConfiguration? = null,
+    val failedSubmissionsTileConfiguration: KmmTileLayoutConfiguration? = null,
     val sortingCriteriaForPendingActions: List<SortingCriteria>? = null
 )
 
 @Serializable
-data class FormAnswerNodeDataSource(
-    val formAnswerIdentifier: FormAnswerIdentifier? = null,
-    val searchDto: FullSearchQueryDto? = null,
+data class KmmFormAnswerNodeDataSource(
+    val formAnswerIdentifier: KmmFormAnswerIdentifier? = null,
+    val searchDto: KmmFullSearchQueryDto? = null,
     val searchKeysToBePopulated: ArrayList<String>? = null,
     @Transient
     val nodeId: String? = null,
@@ -111,19 +111,19 @@ data class FormAnswerNodeDataSource(
 
 
 @Serializable
-data class TileLayoutConfiguration(
+data class KmmTileLayoutConfiguration(
     val tileWidth: String? = null,
     val tileName: String? = null,
     val tileDescription: String? = null,
     val localisationMap: Map<String, Map<String, JsonElement>>? = null,
-    val childrenTilesConfig: List<TileLayoutConfiguration>? = null, // ArrayList becomes List
+    val childrenTilesConfig: List<KmmTileLayoutConfiguration>? = null, // ArrayList becomes List
     val uniqueId: String? = null,
     val uniqueIdType: String? = null, // FORM, GROUP
-    val tileNameConfiguration: TextConfiguration? = null,
-    val tileDescriptionConfiguration: TextConfiguration? = null,
-    val tileBackgroundConfiguration: BackgroundConfiguration? = null,
-    val displayOrientationConfiguration: DisplayOrientationConfiguration? = null,
-    val ctaConfig: ButtonConfiguration? = null,
+    val tileNameConfiguration: KmmTextConfiguration? = null,
+    val tileDescriptionConfiguration: KmmTextConfiguration? = null,
+    val tileBackgroundConfiguration: KmmBackgroundConfiguration? = null,
+    val displayOrientationConfiguration: KmmDisplayOrientationConfiguration? = null,
+    val ctaConfig: KmmButtonConfiguration? = null,
     val showRetryButtonOnFailedSubmissionsTile: Boolean = false
 ) {
     companion object {
@@ -148,22 +148,22 @@ data class SortingCriteria(
 )
 
 @Serializable
-data class FormAnswerIdentifier(
+data class KmmFormAnswerIdentifier(
     val formAnswerId: String? = null,
     val formSchemaId: String? = null,
     val groupId: String? = null,
 )
 
 @Serializable
-data class FullSearchQueryDto(
+data class KmmFullSearchQueryDto(
     val order: List<Order>? = null, // ArrayList becomes List
-    val searchQueries: List<SearchQueryDto> = emptyList() // ArrayList and @NonNull becomes List with a non-nullable default
+    val searchQueries: List<KmmSearchQueryDto> = emptyList() // ArrayList and @NonNull becomes List with a non-nullable default
 )
 
 @Serializable
-data class SearchQueryDto(
-    val resourceReference: ResourceReference? = null,
-    val searchQuery: SearchQuery? = null
+data class KmmSearchQueryDto(
+    val resourceReference: KmmResourceReference? = null,
+    val searchQuery: KmmSearchQuery? = null
 )
 
 @Serializable

@@ -19,7 +19,7 @@ data class KmmModelCompanyConfig(
     val supportedLanguages: List<String>? = null,
     val timeOutConfiguration: TimeoutConfiguration? = null,
     val retryCountForApiCallsFromApp: Map<String, Int>? = null,
-    val customResourceReferences: Map<String, ResourceReference>? = null
+    val customResourceReferences: Map<String, KmmResourceReference>? = null
 
 
 ) {
@@ -47,7 +47,7 @@ data class TimeoutConfiguration(
 )
 
 @Serializable
-data class ResourceReference(
+data class KmmResourceReference(
     val formId: String? = null,
     val groupId: String? = null,
     var domain: String? = null

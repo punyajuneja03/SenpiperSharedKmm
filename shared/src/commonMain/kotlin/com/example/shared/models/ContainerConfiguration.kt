@@ -3,15 +3,15 @@ package com.example.shared.models
 import kotlinx.serialization.Serializable
 
 @Serializable
-data class ContainerConfiguration(
-    val backgroundConfiguration: BackgroundConfiguration? = null,
-    val textConfiguration: TextConfiguration? = null,
+data class KmmContainerConfiguration(
+    val backgroundConfiguration: KmmBackgroundConfiguration? = null,
+    val textConfiguration: KmmTextConfiguration? = null,
     val spacing: MarginConfiguration? = null
 )
 
 
 @Serializable
-data class BackgroundConfiguration(
+data class KmmBackgroundConfiguration(
     val borderThickness: Float? = null,
     val borderColor: String? = null,
   //  val borderRadius: CornerRadius? = null, // Nested data class
@@ -28,13 +28,13 @@ data class BackgroundConfiguration(
 }
 
 @Serializable
-data class TextConfiguration(
+data class KmmTextConfiguration(
     val text: String? = null,
-    val placeholderTextConfiguration: TextConfiguration? = null,
-    val selectAllTextConfiguration: TextConfiguration? = null,
-    val fontConfiguration: FontConfiguration? = null,
-    val prefixConfiguration: ContainerConfiguration? = null,
-    val suffixConfiguration: ContainerConfiguration? = null,
+    val placeholderTextConfiguration: KmmTextConfiguration? = null,
+    val selectAllTextConfiguration: KmmTextConfiguration? = null,
+    val fontConfiguration: KmmFontConfiguration? = null,
+    val prefixConfiguration: KmmContainerConfiguration? = null,
+    val suffixConfiguration: KmmContainerConfiguration? = null,
     val numberOfLines: Int? = null,
     val textAlignment: String? = null
 ) {
@@ -46,7 +46,7 @@ data class TextConfiguration(
 }
 
 @Serializable
-data class FontConfiguration(
+data class KmmFontConfiguration(
     val fontSize: String? = null, // small/medium/large
     val fontWeight: String? = null,  //regular/medium/light
     val fontColor: String? = null,
@@ -55,7 +55,7 @@ data class FontConfiguration(
 
 
 @Serializable
-data class MarginConfiguration(
+data class KmmMarginConfiguration(
     val left: Int? = null,
     val top: Int? = null,
     val bottom: Int? = null,
