@@ -17,9 +17,9 @@ data class KmmModelCompanyConfig(
     val companyAuthConfig: KmmCompanyAuthConfig? = null,
     val groupSettings: KmmGroupSettings? = null,
     val supportedLanguages: List<String>? = null,
-    val timeOutConfiguration: TimeoutConfiguration? = null,
+    val timeOutConfiguration: KmmTimeoutConfiguration? = null,
     val retryCountForApiCallsFromApp: Map<String, Int>? = null,
-    val customResourceReferences: Map<String, KmmResourceReference>? = null
+    val customResourceReferences: Map<String, KmmResourceReferences>? = null
 
 
 ) {
@@ -42,13 +42,25 @@ data class KmmWhiteLabelConfiguration(
 
 
 @Serializable
-data class TimeoutConfiguration(
+data class KmmTimeoutConfiguration(
     val apiTimeOutInSeconds: Int = 0
 )
 
 @Serializable
 data class KmmResourceReference(
+    val target: String? = null,
     val formId: String? = null,
     val groupId: String? = null,
-    var domain: String? = null
+    var chatId: String? = null,
+    var companyId: String? = null,
+    var answerId: String? = null,
+    var reportId: String? = null,
+    var workFlowId: String? = null
+)
+
+@Serializable
+data class KmmResourceReferences(
+    val domain: String? = null,
+    val formId: String? = null,
+    val groupId: String? = null,
 )

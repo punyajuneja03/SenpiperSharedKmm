@@ -76,7 +76,7 @@ data class KmmGroupDisplayConfiguration(
     @SerialName("enableSorting")
     val enableSorting: Boolean? = null,
     @SerialName("cardDisplayConfiguration")
-    val cardDisplayConfiguration: TileLayoutConfiguration? = null
+    val cardDisplayConfiguration: KmmTileLayoutConfiguration? = null
 ) {
     companion object {
         const val JSON_NAME = "groupDisplayConfiguration"
@@ -85,7 +85,7 @@ data class KmmGroupDisplayConfiguration(
 
 @Serializable
 data class KmmSequenceInfo (
-    var formAnswerIdentifier: ArrayList<FormIdentifier>? = null
+    var formAnswerIdentifier: ArrayList<KmmFormIdentifier>? = null
 )
 
 @Serializable
@@ -96,7 +96,7 @@ data class KmmGridViewLayoutConfiguration(
     val schedulerTileLayoutConfiguration: KmmTileLayoutConfiguration? = null,
     val pendingActionsTileLayoutConfiguration: KmmTileLayoutConfiguration? = null,
     val failedSubmissionsTileConfiguration: KmmTileLayoutConfiguration? = null,
-    val sortingCriteriaForPendingActions: List<SortingCriteria>? = null
+    val sortingCriteriaForPendingActions: List<KmmSortingCriteria>? = null
 )
 
 @Serializable
@@ -134,13 +134,13 @@ data class KmmTileLayoutConfiguration(
 }
 
 @Serializable
-data class FormIdentifier(
+data class KmmFormIdentifier(
     val groupId: String? = null, // UUID as String for multiplatform compatibility
     val formId: String? = null   // UUID as String for multiplatform compatibility
 )
 
 @Serializable
-data class SortingCriteria(
+data class KmmSortingCriteria(
     @SerialName("key") var key: String? = null,
     @SerialName("direction") var direction: String? = "DESC",
     @SerialName("keyType") var keyType: String? = "string",
@@ -156,7 +156,7 @@ data class KmmFormAnswerIdentifier(
 
 @Serializable
 data class KmmFullSearchQueryDto(
-    val order: List<Order>? = null, // ArrayList becomes List
+    val order: List<KmmOrder>? = null, // ArrayList becomes List
     val searchQueries: List<KmmSearchQueryDto> = emptyList() // ArrayList and @NonNull becomes List with a non-nullable default
 )
 
@@ -167,7 +167,7 @@ data class KmmSearchQueryDto(
 )
 
 @Serializable
-data class Order(
+data class KmmOrder(
     @SerialName("key")
     val key: String,
     @SerialName("direction")

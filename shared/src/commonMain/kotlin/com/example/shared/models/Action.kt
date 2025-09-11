@@ -28,7 +28,7 @@ data class KmmAction(
     val actionButtonDisplayConfiguration: KmmActionButtonDisplayConfiguration? = null, // Nested type
     val paymentActionConfiguration: KmmPaymentActionConfiguration? = null, // Nested type
 
-    val fields: Map<String, AccessMatrix>? = null, // Map for Map<String, AccessMatrix>
+    val fields: Map<String, KmmAccessMatrix>? = null, // Map for Map<String, AccessMatrix>
     val allowBulkOperation: Boolean = false
 ) {
     // --- Constants ---

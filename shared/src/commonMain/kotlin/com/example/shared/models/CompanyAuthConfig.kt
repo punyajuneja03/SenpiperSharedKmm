@@ -9,7 +9,7 @@ data class KmmCompanyAuthConfig(
     val passwordConfig: KmmPasswordConfig? = null,
     val allowPartiallyRegisteredUsers: Boolean = false,
     val allowPasswordResetOnAccountLock: Boolean = false,
-    val ssoConfigs: List<SSOConfigs>? = null,
+    val ssoConfigs: List<KmmSSOConfigs>? = null,
     val secretType: String? = null,
     val biometricAuthConfig: KmmBiometricAuthConfig? = null,
     val signInOrder: List<String>? = null,
@@ -45,10 +45,12 @@ data class KmmPasswordConfig(
 )
 
 @Serializable
-data class SSOConfigs(
-    val provider: String? = null,
-    val clientId: String? = null,
-    val clientSecret: String? = null
+data class KmmSSOConfigs(
+    val ssoType: String? = null,
+    val loginUrl: String? = null,
+    val successUrl: String? = null,
+    val failureUrl: String? = null,
+    val logOutUrl: String? = null
 )
 
 @Serializable

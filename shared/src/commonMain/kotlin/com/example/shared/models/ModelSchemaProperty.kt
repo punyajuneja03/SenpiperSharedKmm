@@ -79,7 +79,7 @@ data class KmmModelSchemaProperty(
     val caseIdentifierKey: String? = null,
     val fieldTypeArray: Boolean = false, // Boolean defaults to false
     val locationMandatory: Boolean = false, // Boolean defaults to false
-    val searchQueryConfiguration: SearchQueryConfiguration? = null, // Nested type
+    val searchQueryConfiguration: KmmSearchQueryConfiguration? = null, // Nested type
     val comparatorType: Operator? = null, // Nested type (likely an enum or string)
     val properties: Map<String, KmmModelSchemaProperty>? = null, // Recursive type map
     val required: List<String>? = null,
@@ -118,8 +118,8 @@ data class KmmModelSchemaProperty(
     val multimediaConfig: MultimediaConfig? = null, // Nested type
     val sortOptions: Boolean? = null,
     val minSize: Int? = null, // Using Int? for Integer
-    val accessMatrix: AccessMatrix? = null, // Nested type
-    val originalAccessMatrix: AccessMatrix? = null, // Nested type
+    val accessMatrix: KmmAccessMatrix? = null, // Nested type
+    val originalAccessMatrix: KmmAccessMatrix? = null, // Nested type
     // displayFieldTitle was @JsonIgnore and doesn't have a setter, indicating it's derived.
     // It's not part of the primary constructor.
     val formReportConfiguration: KmmFormReportConfiguration? = null, // Nested type
@@ -138,7 +138,7 @@ data class KmmModelSchemaProperty(
     val prefixText: String? = null,
     val suffixText: String? = null,
     val selectAllButtonText: String? = null,
-    val masterConfiguration: MasterConfiguration? = null, // Nested type
+    val masterConfiguration: KmmMasterConfiguration? = null, // Nested type
 
     val enableClientSideValidateButton: Boolean? = null,
 
@@ -181,7 +181,7 @@ enum class Operator {
 data class RemoteValidations(
     val populateAnswer: Boolean? = null,
     val validateOnly: Boolean? = null,
-    val buttonConfiguration: ButtonConfiguration? = null,
+    val buttonConfiguration: KmmButtonConfiguration? = null,
     val dataSource: String? = null,
     val externalApiValidationConfig: ExternalApiValidationConfig? = null,
 )

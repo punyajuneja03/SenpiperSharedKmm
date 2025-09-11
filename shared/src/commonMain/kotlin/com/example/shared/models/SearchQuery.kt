@@ -83,7 +83,7 @@ data class KmmSearchQuery(
     // unless 'key' is the *only* field that defines equality.
     override fun equals(other: Any?): Boolean {
         if (this === other) return true
-        if (other !is SearchQuery) return false
+        if (other !is KmmSearchQuery) return false
 
         // Your custom Java logic handles null 'key' by setting it to an empty string.
         // In Kotlin, it's often cleaner to use safe calls or Elvis operator.

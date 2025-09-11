@@ -6,7 +6,7 @@ import kotlinx.serialization.Serializable
 data class KmmContainerConfiguration(
     val backgroundConfiguration: KmmBackgroundConfiguration? = null,
     val textConfiguration: KmmTextConfiguration? = null,
-    val spacing: MarginConfiguration? = null
+    val spacing: KmmMarginConfiguration? = null
 )
 
 
